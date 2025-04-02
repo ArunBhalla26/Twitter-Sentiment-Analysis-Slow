@@ -15,7 +15,7 @@ def choose_sentiment_or_emotion(request):
     return render(request, 'home/home.html')
 
 class CustomerRegistrationFormView(TemplateView):
-    time.sleep(3)
+    time.sleep(1)
     def get(self , request):
         form = CustomerRegistrationForm()
         return render(request , "CustomerRegistrationForm.html", {"form" : form} )
@@ -29,7 +29,7 @@ class CustomerRegistrationFormView(TemplateView):
         return render(request , "CustomerRegistrationForm.html", {"form" : form} )
     
 class ProfileFormPageView(TemplateView):
-    time.sleep(3)
+    time.sleep(1)
     def get(self ,request):
         form = ProfileForm()
         return render(request , "ProfileForm.html", {"form" : form} )
@@ -47,7 +47,7 @@ class ProfileFormPageView(TemplateView):
         return render(request , "ProfileForm.html", {"form" : form} )
 
 class MyPasswordChangeView(auth_view.PasswordChangeView):
-    time.sleep(3)
+    time.sleep(1)
     template_name = "PasswordChangeForm.html"
     form_class = MyPasswordChangeForm
     success_url = '/pwdchangedone/'
@@ -59,14 +59,14 @@ class MyPasswordChangeView(auth_view.PasswordChangeView):
         return super().form_valid(form)
             
 def LogoutView(request):
-    time.sleep(3)
+    time.sleep(1)
     logout(request)
     messages.success(request , " Sucessfully Loged-Out ! ")
     return redirect('/accounts/login')
 
 def Contact(request):
-    time.sleep(3)
+    time.sleep(1)
     return render(request, "Contact.html")
 def About(request):
-    time.sleep(3)
+    time.sleep(1)
     return render(request, "About.html")

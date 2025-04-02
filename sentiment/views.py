@@ -10,7 +10,7 @@ import time
 print("The time of code execution begin is : ", time.ctime())
 
 def sentiment_analysis(request):
-    time.sleep(3)
+    time.sleep(1)
     return render(request, 'home/sentiment.html')
 
 def sentiment_analysis_type(request):
@@ -22,7 +22,7 @@ def sentiment_analysis_type(request):
             print(tweet, "\n\n\n")
             sentiment = analyse.get_tweet_sentiment(tweet)
             args = {'tweet':tweet, 'sentiment':sentiment}
-            time.sleep(3)
+            time.sleep(1)
             return render(request, 'home/sentiment_type_result.html', args)
 
     else:
@@ -53,10 +53,10 @@ def sentiment_analysis_import(request):
             for i in list_of_tweets:
                 list_of_tweets_and_sentiments.append((i,analyse.get_tweet_sentiment(i)))
             args = {'list_of_tweets_and_sentiments':list_of_tweets_and_sentiments, 'handle':handle}
-            time.sleep(3)
+            time.sleep(1)
             return render(request, 'home/sentiment_import_result.html', args)
 
     else:
         form = Sentiment_Imported_Tweet_analyse_form()
-        time.sleep(3)
+        time.sleep(1)
         return render(request, 'home/sentiment_import.html')
